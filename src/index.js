@@ -1,15 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
-import React, { StrictMode } from "react";
+import Aside from './aside';
+import Main from './main';
+//import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Message from "./message";
-import Header from "./layout/header";
-import Main from "./main";
-import Aside from "./aside";
-import Footer from "./layout/footer";
-import { Container } from 'react-bootstrap';
-
 import {
     createBrowserRouter,
     RouterProvider,
@@ -29,43 +24,23 @@ setTimeout(() => {
         element: <Basic />,
         children: [
             {
-                element: (
+                path:'/',
+                element: <>
                     <div className="col-md-8">
-                        <div>
-                            <StrictMode>
-                                <Container fluid>
-                                    <div className="text-center mb-3 color-text">
-                                        <br></br><h1>BIENVENIDO A NUESTRO SITIO WEB</h1>
-                                    </div>
-                                </Container>
-                                <Header />
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col-md-8">
-                                            <Main />
-                                        </div>
-                                        <div className="col-md-4">
-                                            <Container fluid>
-                                                <div className="text-center mb-3 color-t">
-                                                    <br></br><h1>Registrate</h1>
-                                                </div>
-                                            </Container>
-                                            <Aside />
-                                        </div>
-                                    </div>
-                                </div>
-                                <Footer />
-                            </StrictMode>
-                        </div>
+                        <Main></Main>
                     </div>
-                ),
+                    <div className="col-md-4">
+                        <Aside></Aside>
+                    </div>
+                </>
+            },
+            {
+                path: "detalle/:slug",
+                element: <Single/>,
             },
         ],
     },
-    {
-        path: "detalle/:slug",
-        element: <Single />,
-    },
+    
 ]);
 
 const root = createRoot(document.getElementById("root"));

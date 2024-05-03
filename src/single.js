@@ -1,17 +1,17 @@
-{/*import Gatos from './data/gatos.json'
+import Makeup from './data/makeup.json'
 
 const Single = () => {
 
     const currentRoute = window.location.pathname;
-    const gato = Gatos.find(it => currentRoute.includes(it.slug))
+    const makeup = Makeup.find(it => currentRoute.includes(it.slug))
 
     return (<>
-        <h1>{gato.name}</h1>
+        <h1>{makeup.name}</h1>
         <hr></hr>
-        <img src={gato.picture}></img>
-        <p>{gato.description}</p>
+        <img src={makeup.picture}></img>
+        <p>{makeup.description}</p>
     </>);
 }
 
+
 export default Single;
-*/}
